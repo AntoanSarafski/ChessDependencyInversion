@@ -9,6 +9,14 @@ namespace ChessDependencyInversion.Renderers
     {
         private string path = "../../../chess.txt";
 
+        public TextRenderer()
+        {
+
+        }
+        public TextRenderer(string path)
+        {
+            this.path = path;
+        }
         public void Clear()
         {
             using (StreamWriter writer = new StreamWriter(path, false))

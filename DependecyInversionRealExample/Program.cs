@@ -8,7 +8,7 @@ namespace DependecyInversionRealExample
     {
         static void Main(string[] args)
         {
-            ChessEngine chess = new ChessEngine(new TextRenderer());
+            ChessEngine chess = new ChessEngine(new WebRenderer());
 
             chess.Start();
         }
