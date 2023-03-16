@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessDependencyInversion.Renderers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -9,9 +10,11 @@ namespace ChessDependencyInversion
     {
         private List<Piece> whitePieces;
         private List<Piece> blackPieces;
+        private IRenderer renderer;
 
-        public ChessEngine()
+        public ChessEngine(IRenderer renderer)
         {
+            this.renderer = renderer;
             whitePieces = new List<Piece>()
             {
                 new Piece('R'),
@@ -49,21 +52,24 @@ namespace ChessDependencyInversion
         {
             while (true)
             {
-                Console.WriteLine("Chess board");
-                Console.WriteLine("White pieces:");
+                renderer.WriteLine("Chess board");
+                renderer.WriteLine("White pieces:");
                 foreach (var piece in whitePieces)
                 {
-                    piece.Draw();
+                    piece.Draw(renderer);
                 }
-                Console.WriteLine();
-                Console.WriteLine("Black pieces:");
+                renderer.WriteLine("");
+                renderer.WriteLine("Black pieces:");
                 foreach (var piece in blackPieces)
                 {
-                    piece.Draw();
+                    piece.Draw(renderer);
                 }
                 Thread.Sleep(1000);
 
-                Console.Clear();
+                renderer.Clear();
+
+                whitePieces.RemoveAt(0);
+                blackPieces.RemoveAt(0);
             }
         }
     }

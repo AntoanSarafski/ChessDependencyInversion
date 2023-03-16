@@ -1,13 +1,14 @@
 ﻿using ChessDependencyInversion;
+using ChessDependencyInversion.Renderers;
 using System;
 
 namespace DependecyInversionRealExample
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            ChessEngine chess = new ChessEngine();
+            ChessEngine chess = new ChessEngine(new ConsoleRenderer());
 
             chess.Start();
         }

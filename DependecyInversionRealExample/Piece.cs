@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessDependencyInversion.Renderers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,7 @@ namespace ChessDependencyInversion
 {
     public class Piece
     {
+
         public Piece(char symbol)
         {
             Symbol = symbol;
@@ -14,9 +16,9 @@ namespace ChessDependencyInversion
         public char Symbol { get; set; }
 
 
-        public void Draw()
+        public void Draw(IRenderer renderer)
         {
-            Console.Write(Symbol);
+            renderer.Write(Symbol);
         }
     }
 }
