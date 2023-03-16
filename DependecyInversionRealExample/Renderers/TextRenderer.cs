@@ -19,7 +19,7 @@ namespace ChessDependencyInversion.Renderers
 
         public void Write(object msg)
         {
-            using (StreamWriter writer = new StreamWriter(path))
+            using (StreamWriter writer = new StreamWriter(path, true))
             {
                 writer.Write(msg);
             }
@@ -27,7 +27,7 @@ namespace ChessDependencyInversion.Renderers
 
         public void WriteLine(object msg)
         {
-            using (StreamWriter writer = new StreamWriter(path))
+            using (StreamWriter writer = new StreamWriter(path, true))
             {
                 writer.WriteLine(msg);
             }
