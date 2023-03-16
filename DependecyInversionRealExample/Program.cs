@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessDependencyInversion;
+using System;
 
 namespace DependecyInversionRealExample
 {
@@ -6,7 +7,9 @@ namespace DependecyInversionRealExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ChessEngine chess = new ChessEngine();
+
+            chess.Start();
         }
     }
 }
